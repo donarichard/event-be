@@ -8,7 +8,7 @@ export const addBooking = async (req, res, next) => {
     const id = req.params.id;
     const event = await Event.find({
       _id: id,
-      $expr: { $gt: ["$available", "$booked"] },
+      available: { $ne: 0 },
     });
     if (event.length === 0) {
       return res.status(BAD_REQUEST).send({
