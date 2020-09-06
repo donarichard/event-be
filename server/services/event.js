@@ -37,3 +37,19 @@ export const getEvent = async (req, res, next) => {
     res.status(FORBIDDEN).send("Some thing went wrong");
   }
 };
+
+export const getEventById = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const event = await Event.find({
+      _id: id,
+    }).lean();
+
+    res.status(OK).send({
+      event: event,
+    });
+  } catch (error) {
+    next(error);
+    res.status(FORBIDDEN).send("Some thing went wrong");
+  }
+};
