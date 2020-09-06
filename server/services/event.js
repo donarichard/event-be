@@ -21,7 +21,7 @@ export const getEvent = async (req, res, next) => {
     const event = await Event.find({}).lean();
     event.forEach(async (element, index) => {
       events = event;
-      if (element.booked < element.available) {
+      if (element.available !== 0) {
         events[index].inStock = true;
       } else {
         events[index].inStock = false;
