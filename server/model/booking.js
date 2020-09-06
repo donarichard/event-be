@@ -19,6 +19,10 @@ const booking = new Schema(
       type: String,
       required: [true, "can't be blank"],
     },
+    mobile: {
+      type: Number,
+      required: [true, "can't be blank"],
+    },
     seat: {
       type: Number,
       required: [true, "can't be blank"],

@@ -13,6 +13,7 @@ export default (app) => {
       [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().required(),
+        mobile: Joi.number().required(),
         seat: Joi.number().required(),
         attendee: Joi.array().required(),
       }),
